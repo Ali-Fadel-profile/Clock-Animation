@@ -1,0 +1,102 @@
+/* Challenge 3 exercise-1 */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  background-color: #0a0e27;
+}
+
+.clock {
+  width: 300px;
+  height: 300px;
+  background-color: #333;
+  border: 8px solid #ccc;
+  border-radius: 50%;
+  position: relative;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+.circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  background-color: #fff;
+  border-radius: 50%;
+  z-index: 10;
+}
+.marker {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 4px;
+  height: 15px;
+  background-color: #ccc; /* Markers around the clock */
+  transform-origin: center bottom;
+}
+.seconds-arrow {
+  position: absolute;
+  left: 50%;
+  top: 16%;
+  width: 2px;
+  height: 110px;
+  background-color: red;
+  transform-origin: bottom center;
+  transform: translate(-50%, -16%) rotate(0deg);
+  animation: secondsRotate 60s steps(60) infinite;
+  z-index: 3;
+}
+
+.minutes-arrow {
+  position: absolute;
+  left: 50%;
+  top: 21%;
+  width: 4px;
+  height: 100px;
+  background-color: #90caf9;
+  transform-origin: bottom center;
+  transform: translate(-50%, -21%) rotate(0deg);
+  animation: minutesRotate 3600s linear infinite;
+  z-index: 2;
+}
+.hours-arrow {
+  position: absolute;
+  left: 50%;
+  top: 30%;
+  width: 6px;
+  height: 80px;
+  background-color: #f5f5f5;
+  transform-origin: bottom center;
+  transform: translate(-50%, -30%) rotate(0deg);
+  animation: hoursRotate 43200s linear infinite;
+  z-index: 1;
+}
+@keyframes secondsRotate {
+  from {
+    transform: translate(-50%, -16%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -16%) rotate(360deg);
+  }
+}
+@keyframes minutesRotate {
+  from {
+    transform: translate(-50%, -21%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -21%) rotate(360deg);
+  }
+}
+@keyframes hoursRotate {
+  from {
+    transform: translate(-50%, -30%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -30%) rotate(360deg);
+  }
+}
